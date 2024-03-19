@@ -69,6 +69,14 @@ void pybind_viewcontrol(py::module &m) {
                  "Resets the coordinate frame for local camera rotations")
             .def("get_field_of_view", &ViewControl::GetFieldOfView,
                  "Function to get field of view")
+            .def("get_look_at", &ViewControl::GetLookat,
+                 "Function to get look at")
+            .def("get_eye", &ViewControl::GetEye,
+                 "Function to get eye vector")
+            .def("get_front", &ViewControl::GetFront,
+                 "Function to get front vector")
+            .def("get_up", &ViewControl::GetUp,
+                 "Function to get up vector")
             .def("change_field_of_view", &ViewControl::ChangeFieldOfView,
                  "Function to change field of view", "step"_a = 0.45)
             .def("set_constant_z_near", &ViewControl::SetConstantZNear,
@@ -106,6 +114,14 @@ void pybind_viewcontrol(py::module &m) {
                                     "convert_to_pinhole_camera_parameters",
                                     map_view_control_docstrings);
     docstring::ClassMethodDocInject(m, "ViewControl", "get_field_of_view",
+                                    map_view_control_docstrings);
+    docstring::ClassMethodDocInject(m, "ViewControl", "get_look_at",
+                                    map_view_control_docstrings);
+    docstring::ClassMethodDocInject(m, "ViewControl", "get_eye",
+                                    map_view_control_docstrings);
+    docstring::ClassMethodDocInject(m, "ViewControl", "get_front",
+                                    map_view_control_docstrings);
+    docstring::ClassMethodDocInject(m, "ViewControl", "get_up",
                                     map_view_control_docstrings);
     docstring::ClassMethodDocInject(m, "ViewControl", "rotate",
                                     map_view_control_docstrings);
